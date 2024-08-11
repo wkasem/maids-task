@@ -1,0 +1,18 @@
+
+
+
+
+
+   <div
+      class="bg-white shadow-[0_4px_12px_-5px_rgba(0,0,0,0.4)] w-full max-w-sm rounded-lg overflow-hidden mx-auto font-[sans-serif] mt-4">
+      <img [src]="user?.avatar" class="w-[128px] h-[128px] rounded-lg my-10 mx-auto" />
+
+
+      <div class="p-6 text-center">
+        <h3 class="text-gray-800 text-xl font-bold">{{ user?.first_name}} {{ user?.last_name }}</h3>
+        <p class="mt-4 text-sm text-gray-500 leading-relaxed mb-5">{{ user?.email}}
+        </p>
+        <a routerLink="/users" 
+          class="px-5 py-2.5 rounded-lg text-white text-sm tracking-wider border-none outline-none bg-black hover:bg-blue-400 active:bg-black">Go Back</a>
+      </div>
+    </div>

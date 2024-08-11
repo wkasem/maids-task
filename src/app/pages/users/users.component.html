@@ -1,0 +1,78 @@
+<ul class="font-[sans-serif] flex mx-auto border-2 divide-x-2 border-black rounded w-max my-8">
+  <li
+  (click)="$users.prev()"
+  [class]="{'pointer-events-none' : !$users.hasPrev() , 'opacity-35' : !$users.hasPrev()}"
+    class=" px-5 py-2.5 flex items-center justify-center shrink-0 cursor-pointer text-sm font-semibold text-[#333] min-w-[110px] hover:bg-gray-50">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-current mr-3" viewBox="0 0 55.753 55.753">
+      <path
+        d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+        data-original="#000000" />
+    </svg>
+    Previous
+  </li>
+  <li
+    class="px-5 py-2.5 flex items-center justify-center shrink-0 cursor-pointer text-sm font-semibold text-[#333] min-w-[110px] hover:bg-gray-50"
+    (click)="$users.next()"
+    [class]="{'pointer-events-none' : !$users.hasNext() , 'opacity-35' : !$users.hasNext()}"
+    >
+    Next
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-3 fill-current ml-3 rotate-180" viewBox="0 0 55.753 55.753">
+      <path
+        d="M12.745 23.915c.283-.282.59-.52.913-.727L35.266 1.581a5.4 5.4 0 0 1 7.637 7.638L24.294 27.828l18.705 18.706a5.4 5.4 0 0 1-7.636 7.637L13.658 32.464a5.367 5.367 0 0 1-.913-.727 5.367 5.367 0 0 1-1.572-3.911 5.369 5.369 0 0 1 1.572-3.911z"
+        data-original="#000000" />
+    </svg>
+  </li>
+</ul>
+
+<div class="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4" *ngIf="$users.data() | async as users; else loading;">
+
+  <a *ngFor="let user of users"
+    class="  bg-slate-900 px-8 py-10 hover:shadow-[0_4px_12px_-5px_rgba(0,0,0,0.4)] w-full  rounded-xl  transition-shadow"
+    [routerLink]="['/users', user.id]">
+    <div class="flex flex-col items-center">
+      <img [src]='user.avatar' class="w-[128px] h-[128px] rounded-full object-cover" />
+      <div class="mt-6 text-center">
+        <p class="text-base text-gray-300 font-bold uppercase">
+          {{ user.first_name}} {{ user.last_name }}
+        </p>
+        <h3 class="text-white text-base mt-3 leading-relaxed">{{ user.email}}</h3>
+      </div>
+    </div>
+  </a>
+</div>
+
+<ng-template #loading>
+  <div class="grid gap-4 grid-cols-3 animate-pulse">
+    <div class="bg-gray-800 px-8 py-10 w-full max-w-sm rounded-xl">
+      <div class="flex flex-col items-center">
+        <div class="w-60 h-60 rounded-full bg-gray-200"></div>
+        <div class="mt-6 text-center">
+          <div class="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mx-auto mt-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-800 px-8 py-10 w-full max-w-sm rounded-xl">
+      <div class="flex flex-col items-center">
+        <div class="w-60 h-60 rounded-full bg-gray-200"></div>
+        <div class="mt-6 text-center">
+          <div class="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mx-auto mt-3"></div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-gray-800 px-8 py-10 w-full max-w-sm rounded-xl">
+      <div class="flex flex-col items-center">
+        <div class="w-60 h-60 rounded-full bg-gray-200"></div>
+        <div class="mt-6 text-center">
+          <div class="h-4 bg-gray-200 rounded w-1/2 mx-auto"></div>
+          <div class="h-4 bg-gray-200 rounded w-full mx-auto mt-3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+
+
+

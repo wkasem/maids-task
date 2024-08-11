@@ -1,0 +1,22 @@
+
+
+<div class='w-full' *ngIf="loading$ | async">
+  <div class='h-1.5 w-full bg-pink-100 overflow-hidden'>
+    <div class='progress w-full h-full bg-pink-500 left-right'></div>
+  </div>
+</div>
+<header class='flex shadow-sm bg-white font-[sans-serif] min-h-[70px]'>
+  <div
+    class='flex flex-wrap items-center justify-center sm:px-10 px-6 py-3  w-full bg-stone-950 fixed'>
+
+
+  <app-search class="lg:w-2/4 max-md:w-full"></app-search>
+ 
+  </div>
+
+
+</header>
+
+<main class="container mx-auto my-10">
+  <router-outlet></router-outlet>
+</main>
